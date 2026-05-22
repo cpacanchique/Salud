@@ -38,6 +38,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 }
 
+tasks.named('bootJar') {
+    enabled = true
+}
 tasks.named('test') {
 	useJUnitPlatform()
 }
