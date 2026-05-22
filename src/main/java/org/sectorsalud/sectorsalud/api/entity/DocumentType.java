@@ -14,5 +14,5 @@ public class DocumentType {
     private UUID id;
 
     @Column(nullable = false, unique = true)
-    private String name; // CONCEPTO_MEDICO, PARACLINICO, etc.
+    private String name;
 }
