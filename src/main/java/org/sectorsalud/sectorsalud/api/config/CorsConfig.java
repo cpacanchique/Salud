@@ -4,11 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.web.cors.CorsConfiguration;
+
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import org.springframework.web.filter.CorsFilter;
-
-import java.util.List;
 
 @Configuration
 public class CorsConfig {
@@ -16,28 +15,17 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
 
-        CorsConfiguration config = new CorsConfiguration();
+        CorsConfiguration config =
+                new CorsConfiguration();
 
-        // permitir cookies/autenticación
-        config.setAllowCredentials(true);
+        // PERMITIR TODO
+        config.addAllowedOriginPattern("*");
 
-        // FRONTENDS permitidos
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5500",
-                "http://127.0.0.1:5500"
-        ));
+        config.addAllowedHeader("*");
 
-        // headers permitidos
-        config.setAllowedHeaders(List.of("*"));
+        config.addAllowedMethod("*");
 
-        // métodos permitidos
-        config.setAllowedMethods(List.of(
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE",
-                "OPTIONS"
-        ));
+        config.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
